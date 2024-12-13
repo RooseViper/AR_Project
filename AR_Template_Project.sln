@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{8833b8dc-ffaa-ccdc-af3f-999e8994dc2a}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngameDebugConsole.Runtime", "IngameDebugConsole.Runtime.csproj", "{6debe2fb-dfc8-b4a3-3616-ffced085f210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IngameDebugConsole.Editor", "IngameDebugConsole.Editor.csproj", "{ea4c4cac-15d4-7ecf-9490-4602306539e4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,6 +14,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8833b8dc-ffaa-ccdc-af3f-999e8994dc2a}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8833b8dc-ffaa-ccdc-af3f-999e8994dc2a}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6debe2fb-dfc8-b4a3-3616-ffced085f210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6debe2fb-dfc8-b4a3-3616-ffced085f210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ea4c4cac-15d4-7ecf-9490-4602306539e4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ea4c4cac-15d4-7ecf-9490-4602306539e4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

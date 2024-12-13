@@ -42,9 +42,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\_ARPortal\Source Files\Scripts\DisplayFPS.cs" />
+    <Compile Include="Assets\Scripts\Portal\InteractManager.cs" />
     <Compile Include="Assets\Settings\Project Configuration\SceneTemplate_RotateCube.cs" />
     <Compile Include="Assets\_ARPortal\Source Files\Scripts\LightFlicker.cs" />
-    <Compile Include="Assets\Scripts\Portal\InteractManager.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -836,6 +836,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="IngameDebugConsole.Editor.csproj">
+      <Project>{ea4c4cac-15d4-7ecf-9490-4602306539e4}</Project>
+      <Name>IngameDebugConsole.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="IngameDebugConsole.Runtime.csproj">
+      <Project>{6debe2fb-dfc8-b4a3-3616-ffced085f210}</Project>
+      <Name>IngameDebugConsole.Runtime</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

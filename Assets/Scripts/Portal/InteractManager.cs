@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
@@ -9,20 +10,21 @@ namespace Portal
     {
         // Reference to the ARRaycastManager component
         [SerializeField] private ARRaycastManager raycastManager;
+        [SerializeField] private ARPlaneManager arPlaneManager; 
         [SerializeField] private TextMeshProUGUI debugText;
         // List to store ARRaycast hits
         private List<ARRaycastHit> _hits = new List<ARRaycastHit>();
-
-        void Awake()
+        private bool _portalSpawned;
+        private void Awake()
         {
             if (raycastManager == null)
             {
                 Debug.LogError("ARRaycastManager is not attached to the GameObject.");
             }
         }
-
-        void Update()
+        private void Update()
         {
+            if(_portalSpawned)return;
             // Detect if the player taps on the screen
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
@@ -38,13 +40,42 @@ namespace Portal
                     // Output the hit position
                     debugText.text = "Plane detected";
                     // Optionally, place an object or perform actions here
-                    // Example: Instantiate(prefab, hitPose.position, hitPose.rotation);
+                    Instantiate(raycastManager.raycastPrefab, hitPose.position, hitPose.rotation);
+                    arPlaneManager.SetTrackablesActive(false);
+                    arPlaneManager.enabled = false;
+                    _portalSpawned = true;
                 }
                 else
                 {
                     debugText.text = "No plane detected";
                 }
             }
+        }
+        private void OnEnable()
+        {
+            if (arPlaneManager != null)
+            {
+                arPlaneManager.planesChanged += OnPlanesChanged;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (arPlaneManager != null)
+            {
+                arPlaneManager.planesChanged -= OnPlanesChanged;
+            }
+        }
+
+        private void OnPlanesChanged(ARPlanesChangedEventArgs args)
+        {
+            /*var arPlanes = FindObjectsOfType<ARPlane>().ToList();
+            foreach (var arPlane in arPlanes)
+            {
+                arPlane.gameObject.SetActive(false);
+            }
+            arPlanes.Last().gameObject.SetActive(true);
+            Debug.Log("Last AR Plane " + arPlanes.Last().gameObject);*/
         }
     }
 }
